@@ -1,0 +1,15 @@
+$color: springgreen;
+
+ul {
+    font-size: 14px;
+    color: $color;
+}
+
+ol {
+    font-size: 10px;
+    color: $color;
+}
+
+/* We can actually embed css elements within one another using scss
+/* scss also allows for inheritance using an @ symbol in the scss file
+/* scss also allows for the creation of variables using the dollar sign

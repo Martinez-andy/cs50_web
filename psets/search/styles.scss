@@ -1,9 +1,10 @@
 $dark-mode: #212124;
-$light-grey: #333333;
+$dark-grey: #333333;
+$light-grey: #444444;
 
 .main-search {
     position: absolute;
-    top: 30%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 10px;
@@ -15,13 +16,32 @@ body {
 }
 
 .search {
-    border-radius: 18px;
+    border-radius: 20px;
     width: 500px;
-    height: 30px;
+    height: 40px;
     align-self: center;
     background-color: $dark-mode;
+    border: 2px solid;
+    border-color: $light-grey;
 }
 
 .search:hover {
-    background-color: $light-grey;
+    background-color: $dark-grey;
+    border: 0px;
+}
+
+.form-buttons {
+    margin-top: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 3px;
+    background-color: $dark-grey;
+    color: white;
+    border: 0px;
+    height: 40px;
+}
+
+.form-buttons:hover {
+    border: 1px solid;
+    border-color: $light-grey;
 }

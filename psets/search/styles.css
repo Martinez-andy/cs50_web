@@ -1,6 +1,6 @@
 .main-search {
   position: absolute;
-  top: 30%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 10px;
@@ -12,15 +12,34 @@ body {
 }
 
 .search {
-  border-radius: 18px;
+  border-radius: 20px;
   width: 500px;
-  height: 30px;
+  height: 40px;
   align-self: center;
   background-color: #212124;
+  border: 2px solid;
+  border-color: #444444;
 }
 
 .search:hover {
   background-color: #333333;
+  border: 0px;
+}
+
+.form-buttons {
+  margin-top: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 3px;
+  background-color: #333333;
+  color: white;
+  border: 0px;
+  height: 40px;
+}
+
+.form-buttons:hover {
+  border: 1px solid;
+  border-color: #444444;
 }
 
 /*# sourceMappingURL=styles.css.map */

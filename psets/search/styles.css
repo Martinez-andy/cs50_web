@@ -42,4 +42,22 @@ body {
   border-color: #444444;
 }
 
+.nav-link {
+  color: white;
+}
+
+.nav-link:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.image-search-bar {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  align-items: center;
+}
+
 /*# sourceMappingURL=styles.css.map */

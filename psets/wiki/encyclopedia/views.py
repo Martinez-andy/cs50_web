@@ -23,6 +23,6 @@ def wikiPage(request, title):
             "title": title
         })
     return render(request, "encyclopedia/wiki.html", {
-        "title": title,
+        "title": title.capitalize(),
         "content": content
     })

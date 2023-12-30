@@ -26,3 +26,13 @@ def wikiPage(request, title):
         "title": title.capitalize(),
         "content": content
     })
+
+def search(request):
+    if request.method == "POST":
+        entry_search = request.POST["q"]
+        content = mdToHtml(entry_search)
+        if content != None:
+            return render(request, "encyclopedia/wiki.html", {
+                "title": entry_search,
+                "content": content
+            })

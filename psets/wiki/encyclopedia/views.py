@@ -27,12 +27,27 @@ def wikiPage(request, title):
         "content": content
     })
 
+
+
+# The form sends its data to this function
+# The form's value is returned in the request argument under "q" because that is the name of our form's action
+# CSRF tokens are needed for forms (Needed for secure requests)
 def search(request):
     if request.method == "POST":
-        entry_search = request.POST["q"]
-        content = mdToHtml(entry_search)
-        if content != None:
+        title = request.POST["q"]
+        content = mdToHtml(title)
+        if content != None: # If the a wiki page exists already, then render the page
             return render(request, "encyclopedia/wiki.html", {
-                "title": entry_search,
+                "title": title,
                 "content": content
             })
+        # If wiki page doesn't exist then we want to return any wiki pages that
+        allEntries = util.list_entries()
+        res = []
+        
+        for entry in allEntries:
+            if title.lower() in entry.lower():
+                res.append(entry)
+        return render(request, "encyclopedia/results.html", {
+            "entries": res
+        })

@@ -23,7 +23,8 @@ def wikiPage(request, title):
     content = mdToHtml(title)
     if content == None:
         return render(request, "encyclopedia/error.html", {
-            "title": title
+            "title": title,
+            "message": f"A page on {title} does not exist"
         })
     return render(request, "encyclopedia/wiki.html", {
         "title": title.capitalize(),
@@ -60,3 +61,24 @@ def randomPage(request):
     allEntries = util.list_entries()
     title = random.choice(allEntries)
     return wikiPage(request, title)
+
+
+def newPage(request):
+    if request.method == "GET":
+        return render(request, "encyclopedia/newpage.html")    
+    title = request.POST['title']
+    content = request.POST['content']
+    if util.get_entry(title) != None:
+        return render(request, "encyclopedia/error.html", {
+            "title": title,
+            "message": f"A page on {title}"
+        })
+    util.save_entry(title, content)
+    return wikiPage(request, title)
+
+
+def editPage(request):
+    if request.method == "POST":
+        title = request.POST["title"]
+        content = util.get_entry(title)
+        

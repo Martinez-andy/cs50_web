@@ -6,4 +6,8 @@
 
 {% block body %}
     {{ content | safe }}
+    <form action="{% url "editPage"%}" method="POST">
+        <input type="hidden" name="entry_title" value="{{title}}">
+        <input type="submit" value="Edit" class="btn btn-danger">
+    </form>
 {% endblock %}

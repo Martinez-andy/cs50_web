@@ -79,7 +79,7 @@ def newPage(request):
 
 def editPage(request):
     if request.method == "POST":
-        title = request.POST["title"]
+        title = request.POST['title']
         content = util.get_entry(title)
         return render(request, "encyclopedia/edit.html", {
             "title": title,
@@ -88,4 +88,8 @@ def editPage(request):
         
         
 def saveEdit(request):
-    return
+    if request.method == "POST":
+        title = request.POST["title"]
+        content = request.POST["content"]
+        util.save_entry(title, content)
+        return wikiPage(request, title)

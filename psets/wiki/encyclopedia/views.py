@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from markdown2 import Markdown
+import random
+
 
 from . import util
 
@@ -15,6 +17,7 @@ def index(request):
     return render(request, "encyclopedia/index.html", {
         "entries": util.list_entries()
     })
+
 
 def wikiPage(request, title):
     content = mdToHtml(title)
@@ -51,3 +54,9 @@ def search(request):
         return render(request, "encyclopedia/results.html", {
             "entries": res
         })
+        
+        
+def randomPage(request):
+    allEntries = util.list_entries()
+    title = random.choice(allEntries)
+    return wikiPage(request, title)

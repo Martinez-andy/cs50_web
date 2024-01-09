@@ -3,16 +3,23 @@
 <head>
     <title>Colors!</title>
     <script>
+        // Wait for the page to load, once it does, execute the function.
         document.addEventListener('DOMContentLoaded', function() {
             // Change font color to red
-            document.querySelectorAll('button');
+            document.querySelector('select').onchange = function () {
+                // this is a keyword that corresponds to the thing that responded to the event (select drop down in this case)
+                document.querySelector('#hello').style.color = this.value;
+            }
         });
     </script>
 </head>
 <body>
     <h1 id="hello">Hello!</h1>
-    <button data-color="red">Red</button>
-    <button data-color="blue">Blue</button>
-    <button data-color="green">Green</button>
+    <select>
+        <option value="black">Black</option>
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+    </select>
 </body>
 </html>

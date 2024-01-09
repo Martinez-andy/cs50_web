@@ -2,15 +2,49 @@
 <html lang="en">
 <head>
     <title>Tasks</title>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // Disable submit button unless task is inputted
+
+            document.querySelector('#submit').disabled = true;
+
+            document.querySelector('#task').onkeyup = () => {
+                document.querySelector('#submit').disabled = false;
+            }
+
+            document.querySelector('form').onsubmit = () => {
+                const task = document.querySelector('#task').value;
+
+                // Create a new list item using JS
+                const li = document.createElement('li');
+
+                // Set that new li's inner HTML to be the task the user just submitted
+                li.innerHTML = task;
+
+                // Go into the ul with id tasks and add newly created li to it
+                document.querySelector('#tasks').append(li);
+
+                // Clear out the input field after the user submits
+                document.querySelector('#task').value = '';
+
+                document.querySelector('#submit').disabled = true;
+
+                // To stop form from submiting, we can just return false at the end of this function
+                return false;
+            }
+        });
+    </script>
 </head>
 <body>
     <h1>Tasks</h1>
     <ul id="tasks">
 
     </ul>
-    <form action="">
+    <form >
         <input type="text" placeholder="New Task" id="task">
-        <input type="submit">
+        <input type="submit", id="submit">
     </form>
 </body>
 </html>

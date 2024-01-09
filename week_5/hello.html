@@ -3,10 +3,13 @@
 <head>
     <title>Hello!</title>
     <script>
+        // Wait for the page to load, then...
         document.addEventListener('DOMContentLoaded', function() {
-
+            // Once the user submits the form, then...
             document.querySelector('form').onsubmit = function() {
+                // Store the name in a constant variable by looking for the name class (text form)
                 const name = document.querySelector('#name').value;
+                // Produce an alert: Hello, [person's name].
                 alert(`Hello, ${name}`);
             };
         });
